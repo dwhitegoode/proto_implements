@@ -49,20 +49,17 @@ const result2 = words.myFilter(word => word.length >6)
 
 const arrRed = [15,16,17,18,19]
 /** behavior to follow */
-const initialValue = 0;
-Array.prototype.myReduce = function(cb){
-    let result = 0;
+
+const myReduce = function(array,cb,accumulator){
    
-    for(let i = 0; i<this.length;i++){
-      // console.log(this[i])
-        result += this[i]
+  
+    for(let i = 0; i < array.length; i++){
+        accumulator = cb(accumulator, array[i])
     }
 
-    return result
+    return accumulator
 }
 
-const result3 = arrRed.myReduce((accumulator=10, currentValue)=>{
-    accumulator+currentValue
-}, 10)
+let result3 = myReduce(arrRed,(accumulator, currentValue)=>accumulator+currentValue,10)
 
 console.log(result3)
