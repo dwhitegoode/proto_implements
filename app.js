@@ -41,24 +41,28 @@ Array.prototype.myFilter = function(cb){
 }
 
 const result2 = words.myFilter(word => word.length >6)
-console.log(result2)
+//console.log(result2)
 
 /**
  * REDUCE IMPLEMENTATION
  */
 
-const arrRed = [1,2,3,4]
+const arrRed = [15,16,17,18,19]
 /** behavior to follow */
 const initialValue = 0;
 Array.prototype.myReduce = function(cb){
-    let result;
+    let result = 0;
+   
     for(let i = 0; i<this.length;i++){
-        
+      // console.log(this[i])
+        result += this[i]
     }
 
     return result
 }
 
-const result3 = arrRed.myReduce((accumulator, currentValue)=>{
-    accumulator+currentValue+initialValue;
-})
+const result3 = arrRed.myReduce((accumulator=10, currentValue)=>{
+    accumulator+currentValue
+}, 10)
+
+console.log(result3)
